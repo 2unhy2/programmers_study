@@ -1,3 +1,4 @@
+```
 import java.util.ArrayList;
 import java.util.Arrays;
 class Solution {
@@ -29,8 +30,7 @@ class Solution {
             //System.out.println(arr.get(i));
             answer += arr.get(i);
         }
-        
-       
+```
         return answer;
     }
 }
