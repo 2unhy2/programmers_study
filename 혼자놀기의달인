@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class 혼자놀기의달인 {
+
+    public static int answer(ArrayList<Integer> group_size){
+        int score =0;
+        if(group_size.size()<2){
+            score = 0;
+
+        }
+        else{
+            Collections.sort(group_size, Collections.reverseOrder());
+            score = group_size.get(0) * group_size.get(1);
+        }
+        return score;
+    }
+
+
+    public static void main(String[] args) {
+        int[] cards = {8,6,3,7,2,5,1,4};
+        boolean[] visitedgroup = new boolean[cards.length];
+
+        int current = 0;
+        //int[] group_size;
+        ArrayList<Integer> group_size = new ArrayList<>();
+
+
+        for(int i = 0;i < cards.length;i++){
+            if(!visitedgroup[i]){//요소 8 false
+                int cnt = 0;
+                current = i;//c=0
+                while(!visitedgroup[current]){//요소 8 false
+                    cnt+=1;//그룹요소증가
+                    visitedgroup[current] = true;//요소 8 true
+                    current = cards[current]-1; //이때 cards[current]는 배열요소를 나타냄
+
+                }
+                group_size.add(cnt);
+
+            }
+        }
+        int score = answer(group_size);
+        System.out.println(score);
+    }
+}
